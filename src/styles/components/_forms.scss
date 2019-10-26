@@ -1,0 +1,80 @@
+$block: 'form';
+
+.#{$block} {
+  &__container {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__subtitle {
+    font-weight: bold;
+    font-size: 18px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  &__field {
+    margin: 8px 0;
+  }
+
+  &__control {
+    min-height: 55px;
+    width: 100%;
+    border: solid 1px #e6ecf0;
+    padding: 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    color: $default-text-color;
+
+    &::placeholder {
+      color: rgba($default-text-color, 0.5);
+    }
+
+    &:hover {
+      border-color: $primary-color;
+    }
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
+    }
+
+    @include mobile() {
+      min-height: 35px;
+      padding: 16px;
+    }
+  }
+
+  &__label {
+    font-family: $primary-font-family;
+    font-weight: bold;
+    color: $blue-dark;
+    text-decoration: none;
+    margin-top: 20px;
+    display: block;
+  }
+
+  &__content {
+    margin-top: 16px;
+    font-size: 18px;
+
+    a {
+      font-size: 16px;
+      color: $primary-color;
+      font-weight: bold;
+      display: block;
+      margin-top: 8px;
+      text-decoration: none;
+    }
+
+    @include mobile() {
+      margin-bottom: 16px;
+    }
+  }
+}

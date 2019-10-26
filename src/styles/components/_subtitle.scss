@@ -1,0 +1,16 @@
+$block: 'subtitle';
+
+.#{$block} {
+  font-size: 24px;
+  margin-top: 50px;
+
+  &::after {
+    content: '';
+    height: 8px;
+    width: 70px;
+    display: block;
+    background: $primary-color;
+    border-radius: 100px;
+    margin-top: 4px;
+  }
+}

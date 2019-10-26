@@ -1,0 +1,54 @@
+// Grid
+@import url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css');
+
+/* ------------------------------------------------------------ */
+/*  Basics  */
+/* ------------------------------------------------------------ */
+html,
+body {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  background: $gray-light;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: $default-text-color;
+}
+
+/* ------------------------------------------------------------ */
+/*  Links */
+/* ------------------------------------------------------------ */
+
+a {
+  color: $default-text-color;
+  transition: all 0.5s ease-in-out;
+
+  &:hover,
+  &:active {
+    color: darken($default-text-color, 1);
+    text-decoration: underline;
+  }
+
+  &:focus,
+  &:focus:active {
+    color: darken($default-text-color, 1);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: rgba($black, 0.2);
+  margin: 16px 0;
+}

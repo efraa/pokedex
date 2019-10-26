@@ -1,0 +1,40 @@
+$block: 'user-card';
+
+.#{$block} {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-transform: uppercase;
+  margin: 35px 0;
+
+  &__picture {
+    $size: 145px;
+    width: $size;
+    height: $size;
+    min-height: $size;
+    min-width: $size;
+    background: $gray;
+    border-radius: 100%;
+    margin-right: 22px;
+  }
+
+  &__name {
+    font-size: 35px;
+    margin-bottom: 6px;
+  }
+
+  &__career,
+  &__enrollment {
+    color: $gray;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__enrollment {
+    margin-top: 16px;
+
+    span {
+      margin-left: 8px;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+$block: 'srv-validation-message';
+
+.#{$block} {
+  margin-top: 10px;
+  color: $danger;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}

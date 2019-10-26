@@ -1,0 +1,47 @@
+$block: 'header';
+
+.#{$block} {
+  height: $header-height + 16;
+
+  &__container {
+    position: fixed;
+    background: $white;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $header-height;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: solid 1px rgba($black, 0.1);
+    // box-shadow: 0 0.125rem 0.25rem rgba($black,.075);
+  }
+
+  &__brand {
+    font-size: 24px;
+  }
+
+  &__user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin-right: 12px;
+    }
+
+    &-picture {
+      $size: 45px;
+      width: $size;
+      height: $size;
+      min-height: $size;
+      min-width: $size;
+      background: $gray;
+      border-radius: 100%;
+      margin-right: 22px;
+    }
+  }
+}

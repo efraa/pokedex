@@ -1,0 +1,33 @@
+$block: 'back';
+
+.#{$block} {
+  min-height: 40px;
+  width: 80px;
+  background-color: $white;
+  text-decoration: none;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.125rem 0.25rem rgba($black, 0.075);
+  font-size: 0;
+  background-image: url('../../assets/images/back.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  border: solid 1px transparent;
+
+  &:hover {
+    text-decoration: none;
+    box-shadow: 0 0.125rem 0.25rem rgba($primary-color, 0.2);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 4px rgba($primary-color, 0.3);
+  }
+
+  @include mobile() {
+    min-height: 35px;
+    width: 70px;
+    background-size: 26px;
+  }
+}

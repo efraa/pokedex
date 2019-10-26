@@ -1,0 +1,43 @@
+/* ---------------------- */
+/*  Color palettes */
+/* ---------------------- */
+
+$blue-dark: #0b3978;
+$blue: #559aff;
+$black: #212121;
+$white: #ffffff;
+$gray: #cfcfcf;
+$gray-light: #f9f9fb;
+$danger: rgb(224, 36, 94);
+$warning: #ffdd57;
+$success: #4fd69c;
+$primary-color: $blue;
+$default-text-color: $black;
+
+/* ------------------------------------------------------------ */
+/* Font family */
+/* ------------------------------------------------------------ */
+
+$primary-font-family: 'Poppins', sans-serif;
+$secondary-font-family: 'Lato', sans-serif;
+
+/* ------------------------------------------------------------ */
+/* Breakpoints */
+/* ------------------------------------------------------------ */
+
+// Small devices (landscape phones, 576px and up)
+$sm: 576px;
+// Medium devices (tablets, 768px and up)
+$md: 768px;
+// Large devices (desktops, 992px and up)
+$lg: 992px;
+// Extra large devices (large desktops, 1200px and up)
+$xl: 1200px;
+
+// z-index
+$z-index-1: 10000;
+$z-index-2: 1000;
+$z-index-3: 900;
+
+// Padding del Header y body
+$header-height: 70px;

@@ -1,0 +1,29 @@
+@mixin media-up($value) {
+  @media only screen and (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin media-down($value) {
+  @media only screen and (max-width: $value) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media only screen and (max-width: $md) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media only screen and (max-width: $lg) {
+    @content;
+  }
+}
+
+@mixin desktop-plus() {
+  @media only screen and (max-width: $xl) {
+    @content;
+  }
+}
