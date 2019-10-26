@@ -4,8 +4,8 @@ import { Link, Redirect } from 'react-router-dom'
 import Validator from 'simple-react-validator'
 
 import Register from '../../containers/Register'
-import Field from '../../components/Forms/Field'
-import Button from '../../components/Forms/Button'
+import { Field } from '../../components/Forms/Field'
+import { Button } from '../../components/Forms/Button'
 
 // Utils
 import { validations, roles } from '../../utils/config'

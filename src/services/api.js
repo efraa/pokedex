@@ -1,18 +1,9 @@
-const uri = process.env.API_URI || 'http://localhost:4000/api/v1'
+import api from 'axios'
 
-const headers = {
-  'Content-Type': 'application/json',
-  Authorization: localStorage.token,
-}
+import { apiRoute, headers } from './apiConnection'
 
-export const POST = ({ endpoint, data }) => {
-  const url = `${uri}/${endpoint}`
-  fetch(url, {
-    method: 'POST',
-    mode: 'cors',
-    body: JSON.stringify(data),
-    headers,
-  })
-    .then(res => res.json())
-    .then(response => console.log(response))
-}
+export const post = async (endpoint, data) =>
+  await api.post(apiRoute(endpoint), ...data, ...headers)
+
+export const get = async (endpoint) =>
+  await api.get(apiRoute(endpoint), ...headers)

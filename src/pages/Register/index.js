@@ -1,4 +1,1 @@
-import Register from './Register'
-import RegisterDashboard from './RegisterDashboard'
-
-export { Register, RegisterDashboard }
+export { default as Register } from './Register'

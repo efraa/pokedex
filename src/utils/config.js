@@ -1,10 +1,3 @@
-const uri = path => `${process.env.REACT_APP_API_URI}/${path}`
-
-const headers = {
-  'Content-Type': 'application/json',
-  Authorization: localStorage.token,
-}
-
 const roles = {
   user: 'user',
   owner: 'owner',
@@ -23,4 +16,4 @@ const validations = {
   locale: 'en',
 }
 
-export { uri, headers, roles, validations }
+export { roles, validations }

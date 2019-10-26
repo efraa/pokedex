@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 
-const Button = memo(({ type, wrapper, onClick, label, classes }) => (
+export const Button = memo(({ type, wrapper, onClick, label, classes }) => (
   <div className={`col-12 ${wrapper || ''}`}>
     <div className={`form__field ${classes}`}>
       <button
@@ -13,5 +13,3 @@ const Button = memo(({ type, wrapper, onClick, label, classes }) => (
     </div>
   </div>
 ))
-
-export default Button

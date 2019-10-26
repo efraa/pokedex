@@ -1,44 +1,33 @@
 import jwt from 'jwt-decode'
-import api from 'axios'
+import { AuthService } from '../../services'
 
-import { setAlert } from '../actions'
-import { headers, uri } from '../../utils/config'
+import { Notification } from '../actions'
 
 import {
-  LOGIN_FAIL,
   LOGIN_SUCCESS,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
   SET_CURRENT_USER,
 } from '../types'
 
-// Set New Alerts
-const setResponse = (response, type, dispatch) => {
+// Set New Notifications
+const notification = (response, type, dispatch) => {
   const { data: body, status } = response
   const { data } = body
   if (data && data.length)
-    data.forEach(alert => dispatch(setAlert(alert.msg, status)))
-  else if (data) dispatch(setAlert(data.msg, status))
+    data.forEach(alert => dispatch(Notification(alert.msg, status)))
+  else if (data) dispatch(Notification(data.msg, status))
   dispatch({ type })
 }
 
 // Register User
 export const registerUser = user => async dispatch => {
   try {
-    const res = await api.post(uri('register'), user, headers)
+    const res = await AuthService.register(user)
+    console.log(res)
     if (res.data.data) dispatch(authUser(res.data.data, REGISTER_SUCCESS))
   } catch (err) {
-    setResponse(err.response, REGISTER_FAIL, dispatch)
-  }
-}
-
-// Auth - Get User Token
-export const loginUser = user => async dispatch => {
-  try {
-    const res = await api.post(uri('auth'), user, headers)
-    if (res.data.data) dispatch(authUser(res.data.data))
-  } catch (err) {
-    setResponse(err.response, LOGIN_FAIL, dispatch)
+    notification(err.response, REGISTER_FAIL, dispatch)
   }
 }
 

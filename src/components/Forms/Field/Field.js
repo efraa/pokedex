@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Field = ({
+export const Field = ({
   placeholder,
   label,
   type,
@@ -27,5 +27,3 @@ const Field = ({
     </div>
   </div>
 )
-
-export default Field

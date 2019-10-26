@@ -1,1 +1,1 @@
-export { default } from './Subtitle'
+export { Subtitle } from './Subtitle'
