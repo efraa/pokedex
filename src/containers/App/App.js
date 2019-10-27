@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import jwt from 'jwt-decode'
 
-import { Routes } from '../../routes'
+import Routes from '../../routes'
 
 import { Notification } from '../../components/Notification'
 

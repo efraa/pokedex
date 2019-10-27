@@ -21,6 +21,7 @@ $block: 'form';
   }
 
   &__control {
+    background: $gray-light;
     min-height: 55px;
     width: 100%;
     border: solid 1px #e6ecf0;
@@ -41,6 +42,7 @@ $block: 'form';
     }
 
     &:focus {
+      background: $white;
       border-color: $primary-color;
       box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
     }

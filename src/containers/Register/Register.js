@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 
-import Title from '../../components/Title'
-import Back from '../../components/Back'
+import { Title } from '../../components/Title'
+import { Back } from '../../components/Back'
 
 const Register = memo(({ children, title, subtitle }) => (
   <div className="auth__page">

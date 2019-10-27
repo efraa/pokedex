@@ -1,4 +1,4 @@
-$block: 'btn';
+$block: 'button';
 
 .#{$block} {
   min-height: 45px;
@@ -11,20 +11,55 @@ $block: 'btn';
   font-size: 16px;
   margin: 0;
   font-family: $primary-font-family;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 0.5px;
   cursor: pointer;
   border-radius: 100px;
 
   &:hover {
-    background: darken($primary-color, 10%);
+    background: $blue-dark;
   }
 
   &:focus {
+    background: $blue-dark;
     box-shadow: 0 0 0 4px rgba($primary-color, 0.3);
   }
 
+  &--secoundary {
+    background: rgba($secound-color, 0.15);
+    color: $secound-color;
+
+    &:hover {
+      background: $secound-color;
+      color: $white;
+    }
+  
+    &:focus {
+      background: $secound-color;
+      color: $white;
+      box-shadow: 0 0 0 4px rgba($secound-color, 0.3);
+    }
+  }
+
+  &--outline {
+    background: $white;
+    color: $primary-color;
+
+    &:hover {
+      background: rgba($primary-color, 0.10);
+      color: $primary-color;
+    }
+  
+    &:focus {
+      background: $white;
+      color: $primary-color;
+      box-shadow: 0 0 0 4px rgba($primary-color, 0.3);
+    }
+  }
+
   @include mobile() {
-    min-height: 35px;
-    padding: 14px 18px;
+    min-height: 30px;
+    padding: 12px 18px;
   }
 }

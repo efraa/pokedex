@@ -2,6 +2,7 @@
 
 * {
   font-family: $secondary-font-family;
+  font-weight: normal;
 }
 
 h1,
@@ -18,4 +19,5 @@ h6,
 .h5,
 .h6 {
   font-family: $primary-font-family;
+  font-weight: 900;
 }

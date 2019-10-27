@@ -11,16 +11,16 @@ import { Button } from '../../components/Forms/Button'
 import { validations, roles } from '../../utils/config'
 
 // Actions
-import { registerUser } from '../../state/actions'
+import { registerUser } from '../../store/actions'
 
-const RegisterPage = ({ meta, isAuth, registerUser }) => {
+const RegisterPage = ({ registerUser }) => {
   const [data, setData] = useState({
     name: '',
     surname: '',
     username: '',
     email: '',
     password: '',
-    role: meta.role,
+    role: null,
     codeSchool: '',
     validator: new Validator(validations),
   })
@@ -54,14 +54,12 @@ const RegisterPage = ({ meta, isAuth, registerUser }) => {
     } else validator.showMessages()
   }
 
-  return isAuth ? (
-    <Redirect to="/home" />
-  ) : (
-    <Register title={meta.title} subtitle="Usar otras credenciales de correo.">
+  return (
+    <Register title="efra" subtitle="Usar otras credenciales de correo.">
       <form className="form row" onSubmit={e => onSubmit(e)}>
         <Field
           placeholder={
-            role === roles.school ? 'Nombre de institución' : 'Nombre'
+            role === roles.school ? 'Nn' : 'Nombre'
           }
           value={name}
           name="name"
@@ -104,7 +102,7 @@ const RegisterPage = ({ meta, isAuth, registerUser }) => {
 
         {role !== roles.school ? (
           <Field
-            placeholder="Código de institución"
+            placeholder="C"
             value={codeSchool}
             name="codeSchool"
             onChange={e => onChange(e)}
@@ -133,20 +131,12 @@ const RegisterPage = ({ meta, isAuth, registerUser }) => {
           </p>
         </div>
         <Button
-          label="Registrarse"
+          text="Registrarse"
           type="submit"
-          classes="form__field d-flex justify-content-end"
         />
       </form>
     </Register>
   )
 }
 
-const mapStateToProps = state => ({
-  isAuth: state.auth.isAuth,
-})
-
-export default connect(
-  mapStateToProps,
-  { registerUser }
-)(RegisterPage)
+export default RegisterPage
