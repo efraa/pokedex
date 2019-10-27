@@ -12,7 +12,7 @@ body {
   font-size: 16px;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  // background: $gray-light;
+  background: $gray-light;
 }
 
 * {
@@ -25,19 +25,20 @@ body {
 /*  Links */
 /* ------------------------------------------------------------ */
 
-a {
-  color: $default-text-color;
+a,
+b {
+  color: $secound-color;
   transition: all 0.5s ease-in-out;
 
   &:hover,
   &:active {
-    color: darken($default-text-color, 1);
+    color: darken($secound-color, 1);
     text-decoration: underline;
   }
 
   &:focus,
   &:focus:active {
-    color: darken($default-text-color, 1);
+    color: darken($secound-color, 1);
   }
 }
 

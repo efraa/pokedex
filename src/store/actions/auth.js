@@ -24,7 +24,6 @@ const notification = (response, type, dispatch) => {
 export const registerUser = user => async dispatch => {
   try {
     const res = await AuthService.register(user)
-    console.log(res)
     if (res.data.data) dispatch(authUser(res.data.data, REGISTER_SUCCESS))
   } catch (err) {
     notification(err.response, REGISTER_FAIL, dispatch)

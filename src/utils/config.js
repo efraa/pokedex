@@ -5,13 +5,12 @@ const roles = {
 
 const validations = {
   messages: {
-    required: 'Este campo es requerido.',
-    email: 'Su dirección de correo electrónico debe ser válida.',
-    alpha_num_dash:
-      'El nombre de usuario solo puede contener letras, números y guiones.',
-    min: 'La contraseña debe tener al menos 6 caracteres.',
-    alpha_space: 'Este campo solo puede contener letras y espacios.',
-    alpha_num: 'Este campo solo puede contener letras y números.',
+    required: ':attribute is required.',
+    email: 'Your :attribute address must be valid.',
+    alpha_num_dash: 'The :attribute can only contain letters, numbers and hyphens.',
+    min: ':attribute must be at least 6 characters.',
+    alpha_space: ':attribute can only contain letters and spaces.',
+    alpha_num: ':attribute can only contain letters and numbers.',
   },
   locale: 'en',
 }

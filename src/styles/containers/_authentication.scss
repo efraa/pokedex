@@ -1,0 +1,86 @@
+$block: 'auth';
+
+.#{$block} {
+  &__page {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+  }
+
+  &__container {
+    background: $white;
+    border-radius: $radius-container;
+    // overflow: hidden;
+    box-shadow: rgba($black, 0.02) 0 8 16px;
+    margin: 80px 0;
+
+    @include mobile() {
+      margin: 40px 0;
+    }
+  }
+
+  &__row {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__button {
+    display: flex;
+    flex-grow: 1;
+    min-width: 50%;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background: $primary-color;
+    color: $white;
+    font-family: $primary-font-family;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border-top-left-radius: $radius-container;
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: $radius-container;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus:active {
+      text-decoration: none;
+      color: $white;
+      background: darken($primary-color, 5%);
+    }
+
+    &--is-active {
+      background: rgba($primary-color, 0.5);
+
+      &:hover,
+      &:focus,
+      &:focus:active {
+        background: rgba($primary-color, 0.7);
+      }
+    }
+
+    @include mobile() {
+      min-height: 55px;
+    }
+  }
+
+  &__content {
+    padding: 60px 40px;
+
+    @include mobile() {
+      padding: 34px 24px;
+    }
+  }
+}

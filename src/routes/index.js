@@ -10,8 +10,9 @@ import { Home } from '../pages/Home'
 import { Register } from '../pages/Register'
 
 const Routes = ({
-  isAuth
-}) => (
+  isAuth,
+  loading
+}) => !loading && (
   <>
     <Switch>
       <PrivateRoute
@@ -21,7 +22,7 @@ const Routes = ({
       />
 
       <PublicRoute 
-        isAuthenticated={isAuth}
+        isAuth={isAuth}
         path="/register"
         component={Register} 
         redirect="/home"
@@ -38,6 +39,7 @@ const Routes = ({
 
 const mapStateToProps = state => ({
   isAuth: state.auth.isAuth,
+  loading: state.auth.loading,
 })
 
 export default connect(mapStateToProps, {})(Routes)

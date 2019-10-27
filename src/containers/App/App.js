@@ -9,6 +9,7 @@ import { Notification } from '../../components/Notification'
 
 // Actions
 import { setUser } from '../../store/actions/auth'
+import { LOADED } from '../../store/types'
 
 // Redux
 import store from '../../store'
@@ -22,7 +23,7 @@ const App = memo(() => {
       const user = jwt(token)
       // Set user
       store.dispatch(setUser(user))
-    }
+    } else store.dispatch({ type: LOADED })
   }, [])
 
   return (

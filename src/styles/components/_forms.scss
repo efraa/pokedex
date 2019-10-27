@@ -20,36 +20,46 @@ $block: 'form';
     margin: 8px 0;
   }
 
-  &__control {
-    background: $gray-light;
-    min-height: 55px;
-    width: 100%;
-    border: solid 1px #e6ecf0;
-    padding: 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 16px;
-    outline: none;
-    transition: all 0.3s ease;
-    color: $default-text-color;
+  &__field > .field,
+  &__field .ui.input { width: 100%; }
 
+  &__field .ui.input input,
+  &__control {
+    background: $gray-light !important;
+    min-height: 55px !important;
+    width: 100% !important;
+    border: solid 1px #e6ecf0 !important;
+    padding: 20px !important;
+    border-radius: 6px !important;
+    outline: none !important;
+    transition: all 0.3s ease !important;
+   
+
+    &,
+    & .text {
+      color: $default-text-color !important;
+      font-weight: bold !important;
+      font-size: 16px !important;
+    }
+
+    & .default,
     &::placeholder {
-      color: rgba($default-text-color, 0.5);
+      color: rgba($default-text-color, 0.5) !important;
     }
 
     &:hover {
-      border-color: $primary-color;
+      border-color: $primary-color !important;
     }
 
     &:focus {
-      background: $white;
-      border-color: $primary-color;
-      box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
+      background: $white !important;
+      border-color: $primary-color !important;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.3) !important;
     }
 
     @include mobile() {
-      min-height: 35px;
-      padding: 16px;
+      min-height: 35px !important;
+      padding: 16px !important;
     }
   }
 
@@ -78,5 +88,16 @@ $block: 'form';
     @include mobile() {
       margin-bottom: 16px;
     }
+  }
+}
+
+.dropdown {
+  & .icon {
+    top: 18px !important;
+  }
+  
+  & .menu {
+    border-color: $primary-color !important;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.3) !important;
   }
 }

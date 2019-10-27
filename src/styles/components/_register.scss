@@ -1,0 +1,15 @@
+$block: 'register';
+
+.#{$block} {
+  &__brand {
+    padding: 0 60px;
+  }
+
+  &__gap {
+    margin: 32px 0;
+
+    @include mobile() {
+      margin: 24px 0;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import {
+  LOADED,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   SET_CURRENT_USER,
@@ -28,6 +29,11 @@ export default (state = initialState, action) => {
         state: action.msg,
         user: action.user.user,
         isAuth: true,
+        loading: false,
+      }
+    case LOADED:
+      return {
+        ...state,
         loading: false,
       }
     case REGISTER_FAIL:

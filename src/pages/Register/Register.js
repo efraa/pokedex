@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
+// import { Link, Redirect } from 'react-router-dom'
 import Validator from 'simple-react-validator'
 
-import Register from '../../containers/Register'
+import { Authentication } from '../../containers/Authentication'
+import { Container } from '../../containers/Container'
 import { Field } from '../../components/Forms/Field'
 import { Button } from '../../components/Forms/Button'
+import { PokeSelect } from '../../components/Forms/Select'
+import { Datepicker } from '../../components/Forms/Datepicker'
+import { Subtitle } from '../../components/Subtitle'
+import PokeImage from '../../assets/images/pokemon.png'
 
 // Utils
-import { validations, roles } from '../../utils/config'
+import { validations } from '../../utils/config'
+import { genders } from '../../utils/genders'
 
 // Actions
 import { registerUser } from '../../store/actions'
@@ -16,26 +22,29 @@ import { registerUser } from '../../store/actions'
 const RegisterPage = ({ registerUser }) => {
   const [data, setData] = useState({
     name: '',
-    surname: '',
+    lastname: '',
+    birthdate: null,
     username: '',
     email: '',
     password: '',
-    role: null,
-    codeSchool: '',
+    city: '',
+    gender: '',
     validator: new Validator(validations),
   })
 
   const {
     name,
-    surname,
+    lastname,
+    birthdate,
     username,
     email,
     password,
-    role,
+    city,
+    gender,
     validator,
-    codeSchool,
   } = data
   const onChange = e => setData({ ...data, [e.target.name]: e.target.value })
+  const onSelect = e => setData({ ...data, [e.name]: e.value }) 
 
   const onSubmit = async e => {
     e.preventDefault()
@@ -43,100 +52,134 @@ const RegisterPage = ({ registerUser }) => {
     if (validator.allValid()) {
       const user = {
         name,
-        surname,
+        lastname,
+        birthdate,
         username,
         email,
         password,
-        codeSchool,
-        role,
+        city,
+        gender,
       }
       await registerUser(user)
     } else validator.showMessages()
   }
 
   return (
-    <Register title="efra" subtitle="Usar otras credenciales de correo.">
-      <form className="form row" onSubmit={e => onSubmit(e)}>
-        <Field
-          placeholder={
-            role === roles.school ? 'Nn' : 'Nombre'
-          }
-          value={name}
-          name="name"
-          onChange={e => onChange(e)}
-          wrapper={role !== roles.school ? 'col-lg-6' : ''}
-        >
-          {validator.message('name', name, 'required|alpha_space')}
-        </Field>
+    <Authentication>
+      <form onSubmit={e => onSubmit(e)}>
+        <Container>
+          <div className="col-12 col-lg-6">
+            <Subtitle text="Create a new Account." />
+          </div>
 
-        {role !== roles.school ? (
+          <div className="col-md-6 d-none d-lg-block">
+            <div className="register__brand">
+              <img src={PokeImage} alt="Pokemon" />
+            </div>
+          </div>
+
+          <div className="col-12">
+            <div className="register__gap" />
+          </div>
+
           <Field
-            placeholder="Apellidos"
-            value={surname}
-            name="surname"
+            placeholder="Name"
+            value={name}
+            name="name"
             onChange={e => onChange(e)}
             wrapper="col-lg-6"
           >
-            {validator.message('surname', surname, 'required|alpha_space')}
+            {validator.message('name', name, 'required|alpha_space')}
           </Field>
-        ) : null}
 
-        <Field
-          placeholder="Correo electrónico "
-          value={email}
-          name="email"
-          onChange={e => onChange(e)}
-        >
-          {validator.message('email', email, 'required|email')}
-        </Field>
-
-        <Field
-          placeholder="Nombre de usuario"
-          value={username}
-          name="username"
-          onChange={e => onChange(e)}
-          wrapper="col-lg-6"
-        >
-          {validator.message('username', username, 'required|alpha_num_dash')}
-        </Field>
-
-        {role !== roles.school ? (
           <Field
-            placeholder="C"
-            value={codeSchool}
-            name="codeSchool"
+            placeholder="Lastname"
+            value={lastname}
+            name="lastname"
             onChange={e => onChange(e)}
             wrapper="col-lg-6"
           >
-            {validator.message('codeSchool', codeSchool, 'required|alpha_num')}
+            {validator.message('lastname', lastname, 'required|alpha_space')}
           </Field>
-        ) : null}
 
-        <Field
-          type="password"
-          placeholder="Contraseña"
-          name="password"
-          value={password}
-          onChange={e => onChange(e)}
-          wrapper={role === roles.school ? 'col-lg-6' : ''}
-        >
-          {validator.message('password', password, 'required|min:6')}
-        </Field>
+          <Field
+            placeholder="Username"
+            value={username}
+            name="username"
+            onChange={e => onChange(e)}
+            wrapper="col-lg-6"
+          >
+            {validator.message('username', username, 'required|alpha_num_dash')}
+          </Field>
 
-        <div className="col-12">
-          <p className="register__content">
-            Al registrarse, usted acepta los{' '}
-            <Link to="/register-school">Términos de servicio</Link> & nuestra{' '}
-            <Link to="/register-school">Política de privacidad.</Link>
-          </p>
-        </div>
-        <Button
-          text="Registrarse"
-          type="submit"
-        />
+          <Field
+            placeholder="Email"
+            value={email}
+            name="email"
+            type="email"
+            onChange={e => onChange(e)}
+            wrapper="col-lg-6"
+          >
+            {validator.message('email', email, 'required|email')}
+          </Field>
+
+          <PokeSelect
+            placeholder="Select Gender"
+            wrapper="col-lg-6"
+            name="gender"
+            value={gender}
+            onChange={(e, d) => onSelect(d)}
+            options={genders}
+          >
+            {validator.message('gender', gender, 'required')}
+          </PokeSelect>
+
+          <Datepicker 
+            onChange={birthdate => setData({ ...data, birthdate })}
+            placeholder="Select your birthday"
+            wrapper="col-lg-6"
+          >
+            {validator.message('birthdate', birthdate, 'required')}
+          </Datepicker>
+
+          <Field
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={password}
+            onChange={e => onChange(e)}
+            wrapper="col-lg-6"
+          >
+            {validator.message('password', password, 'required|min:6')}
+          </Field>
+
+          <Field
+            placeholder="City"
+            value={city}
+            name="city"
+            onChange={e => onChange(e)}
+            wrapper="col-lg-6"
+          >
+            {validator.message('city', city, 'required|alpha_space')}
+          </Field>
+
+          <div className="col-6 mt-3">
+            <p>
+              If you register, you accept the
+              <b> Terms of Service </b> and our
+              <b> Privacy Policy </b>.
+            </p>
+          </div>
+          <div className="col-12 d-flex justify-content-end mt-4">
+            <Button
+              text="Registrarse"
+              type="submit"
+            />
+          </div>
+        </Container>
       </form>
-    </Register>
+    </Authentication>
   )
 }
 
-export default RegisterPage
+export default connect(null, { registerUser })(RegisterPage)
