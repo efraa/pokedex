@@ -4,6 +4,7 @@ import { AuthService } from '../../services'
 import { Notification } from '../actions'
 
 import {
+  LOGIN_FAIL,
   LOGIN_SUCCESS,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
@@ -28,6 +29,16 @@ export const registerUser = user => async dispatch => {
     if (res.data.data) dispatch(authUser(res.data.data, REGISTER_SUCCESS))
   } catch (err) {
     notification(err.response, REGISTER_FAIL, dispatch)
+  }
+}
+
+// Auth - Get User Token
+export const login = user => async dispatch => {
+  try {
+    const res = await AuthService.auth(user)
+    if (res.data.data) dispatch(authUser(res.data.data))
+  } catch (err) {
+    notification(err.response, LOGIN_FAIL, dispatch)
   }
 }
 

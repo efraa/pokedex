@@ -1,4 +1,4 @@
-import { registerUser, logout } from './auth'
+import { registerUser, login, logout } from './auth'
 import { Notification } from './notification'
 
-export { Notification, registerUser, logout }
+export { Notification, registerUser, login, logout }
