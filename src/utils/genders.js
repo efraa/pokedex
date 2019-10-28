@@ -20,7 +20,7 @@ export const genders = [
   { 
     key: 'others',
     value: 'others',
-    text: 'Others',
+    text: 'I prefer not to say',
     image: { 
       avatar: true,
       src: 'https://react.semantic-ui.com/images/avatar/small/stevie.jpg'

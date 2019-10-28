@@ -10,15 +10,18 @@ import {
   REGISTER_SUCCESS,
   SET_CURRENT_USER,
   LOGOUT,
+  FORGOT_PASSWORD_FAIL,
+  FORGOT_PASSWORD_SUCCESS,
 } from '../types'
 
 // Set New Notifications
 const notification = (response, type, dispatch) => {
   const { data: body, status } = response
   const { data } = body
-  if (data && data.length)
-    data.forEach(alert => dispatch(Notification(alert.msg, status)))
+  if (data && data.length) data.forEach(notification => dispatch(Notification(notification.msg, status)))
   else if (data) dispatch(Notification(data.msg, status))
+  else if (body.msg) dispatch(Notification(body.msg, 200))
+
   dispatch({ type })
 }
 
@@ -39,6 +42,18 @@ export const login = user => async dispatch => {
     if (res.data.data) dispatch(authUser(res.data.data))
   } catch (err) {
     notification(err.response, LOGIN_FAIL, dispatch)
+  }
+}
+
+// Forgot Password
+export const forgotPassword = (email, history) => async dispatch => {
+  try {
+    const res = await AuthService.forgotPassword(email)
+    if (res.data.data) notification(res.data, FORGOT_PASSWORD_SUCCESS, dispatch)
+
+    history.push('/forgot-password/check-your-email')
+  } catch (err) {
+    notification(err.response, FORGOT_PASSWORD_FAIL, dispatch)
   }
 }
 
@@ -65,5 +80,5 @@ export const setUser = user => dispatch => {
 
 // Logout
 export const logout = () => dispatch => {
-  dispatch({ type: LOGOUT });
-};
+  dispatch({ type: LOGOUT })
+}

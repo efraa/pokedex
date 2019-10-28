@@ -16,14 +16,18 @@ $block: 'button';
   letter-spacing: 0.5px;
   cursor: pointer;
   border-radius: 100px;
+  text-decoration: none !important;
 
   &:hover {
     background: $blue-dark;
+    color: $white;
   }
 
-  &:focus {
+  &:focus,
+  &:focus:active {
     background: $blue-dark;
     box-shadow: 0 0 0 4px rgba($primary-color, 0.3);
+    color: $white;
   }
 
   &--secoundary {
@@ -35,7 +39,8 @@ $block: 'button';
       color: $white;
     }
   
-    &:focus {
+    &:focus,
+    &:focus:active {
       background: $secound-color;
       color: $white;
       box-shadow: 0 0 0 4px rgba($secound-color, 0.3);

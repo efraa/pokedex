@@ -10,6 +10,7 @@ import { Home } from '../pages/Home'
 import { Signup } from '../pages/Signup'
 import { Logout } from '../pages/Logout'
 import { Login } from '../pages/Login'
+import { ForgotPassword } from '../pages/ForgotPassword'
 
 const Routes = ({
   isAuth,
@@ -27,14 +28,18 @@ const Routes = ({
         isAuth={isAuth}
         path="/signup"
         component={Signup} 
-        redirect="/home"
       />
 
       <PublicRoute 
         isAuth={isAuth}
         path="/auth"
         component={Login} 
-        redirect="/home"
+      />
+
+      <PublicRoute 
+        isAuth={isAuth}
+        path="/forgot-password"
+        component={ForgotPassword} 
       />
 
       <PrivateRoute
