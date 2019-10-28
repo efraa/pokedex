@@ -79,7 +79,7 @@ const LoginPage = ({ login }) => {
               <div className="col-12 mt-3">
                 <p>
                   You don't have an account yet? Sign up!
-                  <Link to="/register"> Create Account.</Link>
+                  <Link to="/signup"> Create Account.</Link>
                 </p>
               </div>
               <div className="col-12 d-flex justify-content-between align-items-center mt-4">

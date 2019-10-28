@@ -16,9 +16,9 @@ import { validations } from '../../utils/config'
 import { genders } from '../../utils/genders'
 
 // Actions
-import { registerUser } from '../../store/actions'
+import { signup } from '../../store/actions'
 
-const RegisterPage = ({ registerUser }) => {
+const SignupPage = ({ signup }) => {
   const [data, setData] = useState({
     name: '',
     lastname: '',
@@ -59,7 +59,7 @@ const RegisterPage = ({ registerUser }) => {
         city,
         gender,
       }
-      await registerUser(user)
+      await signup(user)
     } else validator.showMessages()
   }
 
@@ -171,7 +171,7 @@ const RegisterPage = ({ registerUser }) => {
           </div>
           <div className="col-12 d-flex justify-content-end mt-4">
             <Button
-              text="Sign in"
+              text="Sign up"
               type="submit"
             />
           </div>
@@ -181,4 +181,4 @@ const RegisterPage = ({ registerUser }) => {
   )
 }
 
-export default connect(null, { registerUser })(RegisterPage)
+export default connect(null, { signup })(SignupPage)

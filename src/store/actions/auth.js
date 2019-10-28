@@ -22,10 +22,10 @@ const notification = (response, type, dispatch) => {
   dispatch({ type })
 }
 
-// Register User
-export const registerUser = user => async dispatch => {
+// Signup
+export const signup = user => async dispatch => {
   try {
-    const res = await AuthService.register(user)
+    const res = await AuthService.signup(user)
     if (res.data.data) dispatch(authUser(res.data.data, REGISTER_SUCCESS))
   } catch (err) {
     notification(err.response, REGISTER_FAIL, dispatch)

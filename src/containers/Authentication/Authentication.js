@@ -18,11 +18,11 @@ export const Authentication = memo(({ children }) => (
             </NavLink>
 
             <NavLink 
-              to="/register"
+              to="/signup"
               className="auth__button"
               activeClassName="auth__button--is-active"
             >
-              Register
+              Sign up
             </NavLink>
           </div>
           <div className="auth__content">

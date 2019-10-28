@@ -7,7 +7,7 @@ import { PublicRoute } from './PublicRoute'
 
 // Routes
 import { Home } from '../pages/Home'
-import { Register } from '../pages/Register'
+import { Signup } from '../pages/Signup'
 import { Logout } from '../pages/Logout'
 import { Login } from '../pages/Login'
 
@@ -25,8 +25,8 @@ const Routes = ({
 
       <PublicRoute 
         isAuth={isAuth}
-        path="/register"
-        component={Register} 
+        path="/signup"
+        component={Signup} 
         redirect="/home"
       />
 
