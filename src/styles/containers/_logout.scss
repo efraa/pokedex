@@ -1,0 +1,33 @@
+$block: 'logout';
+
+.#{$block} {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  &__form {
+    margin: auto;
+  }
+
+  &__container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $white;
+    border-radius: $radius-container;
+    padding: 40px;
+    box-shadow: rgba($black, 0.02) 0 8 16px;
+    min-height: 300px;
+  }
+
+  &__title {
+    font-size: 35px;
+  }
+
+  &__text {
+    font-size: 18px;
+  }
+}

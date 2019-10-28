@@ -8,6 +8,7 @@ import {
   REGISTER_FAIL,
   REGISTER_SUCCESS,
   SET_CURRENT_USER,
+  LOGOUT,
 } from '../types'
 
 // Set New Notifications
@@ -49,3 +50,9 @@ export const setUser = user => dispatch => {
     user,
   })
 }
+
+
+// Logout
+export const logout = () => dispatch => {
+  dispatch({ type: LOGOUT });
+};

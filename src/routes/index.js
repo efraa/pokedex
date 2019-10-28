@@ -8,6 +8,7 @@ import { PublicRoute } from './PublicRoute'
 // Routes
 import { Home } from '../pages/Home'
 import { Register } from '../pages/Register'
+import { Logout } from '../pages/Logout'
 
 const Routes = ({
   isAuth,
@@ -26,6 +27,12 @@ const Routes = ({
         path="/register"
         component={Register} 
         redirect="/home"
+      />
+
+      <PrivateRoute
+        isAuth={isAuth}
+        path="/logout" 
+        component={Logout} 
       />
 
       <PrivateRoute

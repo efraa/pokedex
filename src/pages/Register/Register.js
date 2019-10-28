@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-// import { Link, Redirect } from 'react-router-dom'
 import Validator from 'simple-react-validator'
 
 import { Authentication } from '../../containers/Authentication'
@@ -163,7 +162,7 @@ const RegisterPage = ({ registerUser }) => {
             {validator.message('city', city, 'required|alpha_space')}
           </Field>
 
-          <div className="col-6 mt-3">
+          <div className="col-12 col-md-6 mt-3">
             <p>
               If you register, you accept the
               <b> Terms of Service </b> and our
