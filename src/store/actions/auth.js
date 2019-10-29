@@ -12,6 +12,7 @@ import {
   LOGOUT,
   FORGOT_PASSWORD_FAIL,
   FORGOT_PASSWORD_SUCCESS,
+  FORGOT_PASSWORD_LOADING,
 } from '../types'
 
 // Set New Notifications
@@ -48,6 +49,8 @@ export const login = user => async dispatch => {
 // Forgot Password
 export const forgotPassword = (email, history) => async dispatch => {
   try {
+    dispatch({ type: FORGOT_PASSWORD_LOADING })
+    
     const res = await AuthService.forgotPassword(email)
     if (res.data.data) notification(res.data, FORGOT_PASSWORD_SUCCESS, dispatch)
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import Validator from 'simple-react-validator'
 
+import { Spinner } from '../../components/Spinner'
 import { ResetPassword } from '../../containers/ResetPassword'
 import { Container } from '../../containers/Container'
 import { Field } from '../../components/Forms/Field'
@@ -16,7 +17,11 @@ import { validations } from '../../utils/config'
 import { forgotPassword } from '../../store/actions'
 import { Link } from 'react-router-dom'
 
-const ForgotPasswordPage = ({ forgotPassword, history }) => {
+const ForgotPasswordPage = ({
+  forgotPassword,
+  forgotPassIsLoading,
+  history 
+}) => {
   const [data, setData] = useState({
     email: '',
     validator: new Validator(validations),
@@ -38,6 +43,7 @@ const ForgotPasswordPage = ({ forgotPassword, history }) => {
 
   return (
     <ResetPassword>
+      {forgotPassIsLoading ? <Spinner /> : ''}
       <form onSubmit={e => onSubmit(e)}>
         <Container rowClasses="no-gutters">
           <div className="col-12 mb-4">
@@ -72,4 +78,8 @@ const ForgotPasswordPage = ({ forgotPassword, history }) => {
   )
 }
 
-export default connect(null, { forgotPassword })(ForgotPasswordPage)
+const mapStateToProps = state => ({
+  forgotPassIsLoading: state.auth.forgotPassIsLoading,
+})
+
+export default connect(mapStateToProps, { forgotPassword })(ForgotPasswordPage)
