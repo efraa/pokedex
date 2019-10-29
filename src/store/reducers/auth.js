@@ -6,6 +6,8 @@ import {
   LOGOUT,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
+  FORGOT_PASSWORD_LOADING,
+  FORGOT_PASSWORD_SUCCESS,
 } from '../types'
 
 const initialState = {
@@ -36,6 +38,16 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
       }
+    case FORGOT_PASSWORD_LOADING:
+      return {
+        ...state,
+        forgotPassIsLoading: true,
+      }
+    case FORGOT_PASSWORD_SUCCESS:
+      sessionStorage.setItem('emailSended', true)
+      return {
+        ...state,
+      }
     case REGISTER_FAIL:
     case LOGIN_FAIL:
     case LOGOUT:
@@ -51,6 +63,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         state: action.msg,
+        forgotPassIsLoading: undefined,
       }
   }
 }

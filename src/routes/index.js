@@ -11,6 +11,7 @@ import { Signup } from '../pages/Signup'
 import { Logout } from '../pages/Logout'
 import { Login } from '../pages/Login'
 import { ForgotPassword } from '../pages/ForgotPassword'
+import { CheckEmail } from '../pages/CheckEmail'
 
 const Routes = ({
   isAuth,
@@ -34,6 +35,12 @@ const Routes = ({
         isAuth={isAuth}
         path="/auth"
         component={Login} 
+      />
+
+      <PublicRoute 
+        isAuth={isAuth}
+        path="/forgot-password/check-your-email"
+        component={CheckEmail} 
       />
 
       <PublicRoute 
