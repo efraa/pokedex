@@ -12,6 +12,7 @@ import { Logout } from '../pages/Logout'
 import { Login } from '../pages/Login'
 import { ForgotPassword } from '../pages/ForgotPassword'
 import { CheckEmail } from '../pages/CheckEmail'
+import { ResetPassword } from '../pages/ResetPassword'
 
 const Routes = ({
   isAuth,
@@ -47,6 +48,12 @@ const Routes = ({
         isAuth={isAuth}
         path="/forgot-password"
         component={ForgotPassword} 
+      />
+
+      <PublicRoute 
+        isAuth={isAuth}
+        path="/reset-password/:token"
+        component={ResetPassword} 
       />
 
       <PrivateRoute

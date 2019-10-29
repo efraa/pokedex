@@ -5,5 +5,8 @@ import { apiRoute, headers } from './apiConnection'
 export const post = async (endpoint, data) =>
   await api.post(apiRoute(endpoint), data, headers)
 
-export const get = async (endpoint) =>
+export const get = async endpoint =>
   await api.get(apiRoute(endpoint), headers)
+
+export const put = async (endpoint, data) =>
+  await api.put(apiRoute(endpoint), data, headers)

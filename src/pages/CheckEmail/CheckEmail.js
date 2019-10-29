@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
-
+import { connect } from 'react-redux'
 import { ResetPassword } from '../../containers/ResetPassword'
 import { Container } from '../../containers/Container'
 import { Subtitle } from '../../components/Subtitle'
 
-const isSend = sessionStorage.getItem('emailSended')
-export const CheckEmail = () => !isSend ?
+export const CheckEmail = ({
+  emailSended
+}) => !emailSended ? 
   <Redirect to="/forgot-password" /> :
   (
     <ResetPassword>
@@ -26,3 +27,12 @@ export const CheckEmail = () => !isSend ?
         </Container>
     </ResetPassword>
   )
+
+const mapStateToProps = state => ({
+  emailSended: state.auth.emailSended,
+})
+  
+export default connect(
+  mapStateToProps,
+  {}
+)(CheckEmail)

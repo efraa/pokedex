@@ -1,1 +1,1 @@
-export { CheckEmail } from './CheckEmail'
+export { default as CheckEmail } from './CheckEmail'

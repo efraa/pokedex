@@ -8,6 +8,8 @@ import {
   REGISTER_SUCCESS,
   FORGOT_PASSWORD_LOADING,
   FORGOT_PASSWORD_SUCCESS,
+  RESET_PASSWORD_GET_USER_SUCCESS,
+  FORGOT_PASSWORD_FAIL,
 } from '../types'
 
 const initialState = {
@@ -44,9 +46,21 @@ export default (state = initialState, action) => {
         forgotPassIsLoading: true,
       }
     case FORGOT_PASSWORD_SUCCESS:
-      sessionStorage.setItem('emailSended', true)
       return {
         ...state,
+        emailSended: true,
+      }
+    case FORGOT_PASSWORD_FAIL:
+      return {
+        ...state,
+        emailSended: undefined,
+      }
+    case RESET_PASSWORD_GET_USER_SUCCESS:
+      return {
+        ...state,
+        resetPassword: {
+          user: action.user
+        }
       }
     case REGISTER_FAIL:
     case LOGIN_FAIL:

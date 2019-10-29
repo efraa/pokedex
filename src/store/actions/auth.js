@@ -13,6 +13,10 @@ import {
   FORGOT_PASSWORD_FAIL,
   FORGOT_PASSWORD_SUCCESS,
   FORGOT_PASSWORD_LOADING,
+  RESET_PASSWORD_GET_USER_SUCCESS,
+  RESET_PASSWORD_GET_USER_FAIL,
+  RESET_PASSWORD_SUCCESS,
+  RESET_PASSWORD_FAIL,
 } from '../types'
 
 // Set New Notifications
@@ -52,11 +56,46 @@ export const forgotPassword = (email, history) => async dispatch => {
     dispatch({ type: FORGOT_PASSWORD_LOADING })
     
     const res = await AuthService.forgotPassword(email)
-    if (res.data.data) notification(res.data, FORGOT_PASSWORD_SUCCESS, dispatch)
+    if (res.data.data) 
+      notification(res.data, FORGOT_PASSWORD_SUCCESS, dispatch)
 
     history.push('/forgot-password/check-your-email')
   } catch (err) {
     notification(err.response, FORGOT_PASSWORD_FAIL, dispatch)
+  }
+}
+
+// Forgot Password - Expire
+export const forgotPassIsExpire = (token, history) => async dispatch => {
+  try {
+    const res = await AuthService.forgotPassIsExpire(token)
+    if (res.data.data) {
+      const { name, lastname, username, picture } = res.data.data
+      dispatch({ 
+        type: RESET_PASSWORD_GET_USER_SUCCESS,
+        user: {
+          name,
+          lastname,
+          username,
+          picture,
+        }
+      })
+    }
+  } catch (err) {
+    notification(err.response, RESET_PASSWORD_GET_USER_FAIL, dispatch)
+    history.push('/forgot-password')
+  }
+}
+
+// Reset Password
+export const resetPassword = (password, token, history) => async dispatch => {
+  try {
+    const res = await AuthService.resetPassword(password, token)
+    if (res.data.data) notification(res.data, RESET_PASSWORD_SUCCESS, dispatch)
+
+    history.push('/auth')
+  } catch (err) {
+    notification(err.response, RESET_PASSWORD_FAIL, dispatch)
   }
 }
 
