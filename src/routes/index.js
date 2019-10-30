@@ -20,12 +20,6 @@ const Routes = ({
 }) => !loading && (
   <>
     <Switch>
-      <PrivateRoute
-        isAuth={isAuth}
-        path="/home" 
-        component={Home} 
-      />
-
       <PublicRoute 
         isAuth={isAuth}
         path="/signup"

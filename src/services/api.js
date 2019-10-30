@@ -1,12 +1,16 @@
-import api from 'axios'
-
+import instance from 'axios'
 import { apiRoute, headers } from './apiConnection'
 
-export const post = async (endpoint, data) =>
-  await api.post(apiRoute(endpoint), data, headers)
+const api = instance.create({
+  baseURL: apiRoute,
+  headers
+});
 
-export const get = async endpoint =>
-  await api.get(apiRoute(endpoint), headers)
+export const post = async (endpoint, data) =>
+  await api.post(endpoint, data)
 
 export const put = async (endpoint, data) =>
-  await api.put(apiRoute(endpoint), data, headers)
+  await api.put(endpoint, data)
+
+export const get = async endpoint =>
+  await api.get(endpoint)

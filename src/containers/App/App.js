@@ -6,6 +6,7 @@ import jwt from 'jwt-decode'
 import Routes from '../../routes'
 
 import { Notification } from '../../components/Notification'
+import { OnBoarding } from '../../components/onBoarding'
 
 // Actions
 import { setUser } from '../../store/actions/auth'
@@ -32,6 +33,7 @@ const App = memo(() => {
 
   return (
     <Provider store={store}>
+      <OnBoarding />
       <Notification />
       <Router>
         <>

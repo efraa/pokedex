@@ -15,4 +15,7 @@ export const AuthService = {
 
   resetPassword: async (password, token) =>
     await put(`account/reset_password/${token}`, password),
+
+  updateUser: async (username, updated) =>
+    await put(`user/${username}`, updated),
 }

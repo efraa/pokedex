@@ -10,6 +10,7 @@ import {
   FORGOT_PASSWORD_SUCCESS,
   RESET_PASSWORD_GET_USER_SUCCESS,
   FORGOT_PASSWORD_FAIL,
+  ON_BOARDING_SUCCESS,
 } from '../types'
 
 const initialState = {
@@ -60,6 +61,14 @@ export default (state = initialState, action) => {
         ...state,
         resetPassword: {
           user: action.user
+        }
+      }
+    case ON_BOARDING_SUCCESS:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          onBoarding: false,
         }
       }
     case REGISTER_FAIL:

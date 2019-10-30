@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import Validator from 'simple-react-validator'
 
-import { Spinner } from '../../components/Spinner'
 import { ResetPassword } from '../../containers/ResetPassword'
 import { Container } from '../../containers/Container'
 import { Field } from '../../components/Forms/Field'
@@ -53,7 +52,6 @@ const ResetPasswordPage = ({
   
   return auth && !auth.loading && (
     <ResetPassword>
-      {false ? <Spinner /> : ''}
       <form onSubmit={e => onSubmit(e)}>
         <Container rowClasses="no-gutters">
           <div className="col-12">

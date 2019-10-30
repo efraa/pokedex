@@ -5,4 +5,4 @@ export const PublicRoute = ({
   isAuth, 
   redirect, 
   ...props 
-}) => isAuth ? <Redirect to={redirect || "/home"} /> : <Route exact {...props} />
+}) => isAuth ? <Redirect to={redirect || "/"} /> : <Route exact {...props} />

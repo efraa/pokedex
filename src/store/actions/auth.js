@@ -17,6 +17,8 @@ import {
   RESET_PASSWORD_GET_USER_FAIL,
   RESET_PASSWORD_SUCCESS,
   RESET_PASSWORD_FAIL,
+  ON_BOARDING_FAILT,
+  ON_BOARDING_SUCCESS,
 } from '../types'
 
 // Set New Notifications
@@ -96,6 +98,19 @@ export const resetPassword = (password, token, history) => async dispatch => {
     history.push('/auth')
   } catch (err) {
     notification(err.response, RESET_PASSWORD_FAIL, dispatch)
+  }
+}
+
+// Set OnBoarding
+export const setOnBoarding = (username, onBoarding) => async dispatch => {
+  try {
+    const res = await AuthService.updateUser(username, onBoarding)
+    if (res.data.data)
+      dispatch({
+        type: ON_BOARDING_SUCCESS,
+      })
+  } catch (err) {
+    notification(err.response, ON_BOARDING_FAILT, dispatch)
   }
 }
 

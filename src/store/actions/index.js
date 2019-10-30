@@ -5,6 +5,7 @@ import {
   forgotPassword,
   forgotPassIsExpire,
   resetPassword,
+  setOnBoarding,
 } from './auth'
 
 import { Notification } from './notification'
@@ -17,4 +18,5 @@ export {
   forgotPassword,
   forgotPassIsExpire,
   resetPassword,
+  setOnBoarding,
 }

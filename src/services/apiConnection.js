@@ -9,5 +9,4 @@ export const headers = {
   Authorization: localStorage.token,
 }
 
-const apiUrl = `${URL}:${PORT}${PREFIX}`
-export const apiRoute = path => `${apiUrl}/${path}`
+export const apiRoute = `${URL}:${PORT}${PREFIX}`
