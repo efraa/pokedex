@@ -1,17 +1,41 @@
 # Pokedex 🚀
 
-### Getting Started 📌
+## Getting Started 📌
+***
 
-#### Development
+### Requirement
+***
 
-1. Clonar.
+* NodeJS
+
+__This repository depends on the successful installation of the API__
+__Back end in the repository located__ [PokedexAPI.](https://github.com/Efraa/pokedex-api)
+***
+
+### Development and running the application
+
+1. Clone
 2. Move to --> `cd pokedex`
-3. Actualizar de ser necesario `.env`
+3. copy `.default.env` to `.env`
 4. Run `npm install`
+5. Be sure to run the API on your machine.
 
-### Scripts
+### Env variables:
 
-#### `npm start`
+* `API_URL`: URL base of your API. --> `http://localhost`
+* `API_PORT`: API PORT --> `default`: `2302`
+* `API_PREFIX_ROUTES`: default --> `/api/v1`
+
+### IMPORTANT NOTE:
+
+__Make sure the following values ​​are the same in your API.__
+
+* `TOKEN_EXPIRE`: Copy from your API --> default `72h`
+* `SECRET`: Copy from your API --> example: `secret-pokedex-api`
+
+### Ready
+
+__Run__ `npm start`
 
 Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Your browser will open in [http://localhost:3000](http://localhost:3000).

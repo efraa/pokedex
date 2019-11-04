@@ -1,3 +1,5 @@
+import { generateToken } from '../../utils/jwt'
+
 import {
   LOADED,
   LOGIN_SUCCESS,
@@ -64,12 +66,14 @@ export default (state = initialState, action) => {
         }
       }
     case ON_BOARDING_SUCCESS:
+      const user = {
+        ...state.user,
+        onBoarding: false,
+      }
+      generateToken(user)
       return {
         ...state,
-        user: {
-          ...state.user,
-          onBoarding: false,
-        }
+        user,
       }
     case REGISTER_FAIL:
     case LOGIN_FAIL:

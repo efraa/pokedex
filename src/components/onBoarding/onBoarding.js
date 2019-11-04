@@ -18,7 +18,7 @@ const OnBoarding = ({ loading, user, setOnBoarding }) => {
 
   return !loading &&
     user &&
-    user.onBoarding &&
+    user.onBoarding ?
     (
       <div className="on-boarding__container fade">
         <div className="on-boarding__main">
@@ -48,7 +48,7 @@ const OnBoarding = ({ loading, user, setOnBoarding }) => {
           </div>
         </div>
       </div>
-    )
+    ) : false
 }
 
 const mapStateToProps = state => ({

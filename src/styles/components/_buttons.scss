@@ -4,7 +4,7 @@ $block: 'button';
   min-height: 45px;
   padding: 16px 24px;
   text-align: center;
-  background: $primary-color;
+  background-color: $primary-color;
   color: $white;
   border: none;
   outline: none;
@@ -19,29 +19,29 @@ $block: 'button';
   text-decoration: none !important;
 
   &:hover {
-    background: $blue-dark;
+    background-color: $blue-dark;
     color: $white;
   }
 
   &:focus,
   &:focus:active {
-    background: $blue-dark;
+    background-color: $blue-dark;
     box-shadow: 0 0 0 4px rgba($primary-color, 0.3);
     color: $white;
   }
 
   &--secoundary {
-    background: rgba($secound-color, 0.15);
+    background-color: rgba($secound-color, 0.15);
     color: $secound-color;
 
     &:hover {
-      background: $secound-color;
+      background-color: $secound-color;
       color: $white;
     }
   
     &:focus,
     &:focus:active {
-      background: $secound-color;
+      background-color: $secound-color;
       color: $white;
       box-shadow: 0 0 0 4px rgba($secound-color, 0.3);
     }
