@@ -1,5 +1,7 @@
 # Pokedex 🚀
 
+<img src="shorturl.at/jyH57" alt="cover" style="max-width:100%;" />
+
 ### Requirement 📌
 ***
 
