@@ -1,6 +1,6 @@
 # Pokedex 🚀
 
-<img src="shorturl.at/jyH57" alt="cover" style="max-width:100%;" />
+<img src="https://firebasestorage.googleapis.com/v0/b/portfolio-b3498.appspot.com/o/signup.PNG?alt=media&token=c948a5b1-0a21-47ef-948c-82973a4fafc9" alt="cover" style="max-width:100%;" />
 
 ### Requirement 📌
 ***
