@@ -1,3 +1,4 @@
 import React, { memo } from 'react'
 
-export const Title = memo(({ children }) => <h2 className="title">{children}</h2>)
+export const Title = memo(({ text, className }) =>
+  <h2 className={`title ${className}`}>{text}</h2>)

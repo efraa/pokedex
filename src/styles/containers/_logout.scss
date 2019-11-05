@@ -5,6 +5,7 @@ $block: 'logout';
   min-height: 100vh;
   justify-content: center;
   align-items: center;
+  background: $gray-light;
 
   &__form {
     margin: auto;

@@ -1,47 +1,35 @@
 $block: 'header';
 
 .#{$block} {
-  height: $header-height + 16;
-
   &__container {
-    position: fixed;
-    background: $white;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: $header-height;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    border-bottom: solid 1px rgba($black, 0.1);
-    // box-shadow: 0 0.125rem 0.25rem rgba($black,.075);
+    min-height: 350px;
+    padding: 40px;
+    background-color: $white;
+    border-bottom-left-radius: $radius-container + 20;
+    border-bottom-right-radius: $radius-container + 20;
+    background-image: url('../../assets/images/poke-balls.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 98%;
+    border: solid 1px $gray-light;
   }
 
-  &__brand {
-    font-size: 24px;
+  &__title {
+    max-width: 520px;
   }
 
-  &__user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &__form {
+    max-width: 430px;
+    margin-top: 40px;
 
-    &-name {
-      font-size: 16px;
-      font-weight: bold;
-      margin-right: 12px;
+    form {
+      display: flex;
+      flex-wrap: nowrap;
     }
 
-    &-picture {
-      $size: 45px;
-      width: $size;
-      height: $size;
-      min-height: $size;
-      min-width: $size;
-      background: $gray;
-      border-radius: 100%;
-      margin-right: 22px;
+    .row {
+      width: 100%;
     }
   }
 }

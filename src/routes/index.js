@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { PrivateRoute } from './PrivateRoute'
@@ -58,9 +58,11 @@ const Routes = ({
 
       <PrivateRoute
         isAuth={isAuth}
-        path="/" 
+        path="/home" 
         component={Home} 
       />
+
+      <Route render={() => <Redirect to="/home" />} />
     </Switch>
   </>
 )

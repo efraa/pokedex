@@ -1,15 +1,13 @@
 $block: 'title';
 
 .#{$block} {
-  $size: 55px;
+  $size: 48px;
   font-size: $size;
   line-height: $size + 8;
-  margin: 16px 0 50px 0;
 
   @include mobile() {
-    $size: 40px;
+    $size: 35px;
     font-size: $size;
     line-height: $size + 8;
-    margin: 16px 0 30px 0;
   }
 }

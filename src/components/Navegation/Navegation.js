@@ -10,9 +10,10 @@ import { setOnBoarding } from '../../store/actions'
 const Navegation = ({ user, setOnBoarding }) => {
   const onSubmit = async e => {
     e.preventDefault()
-    await setOnBoarding(user.username, {
+    console.log(e)
+    /* await setOnBoarding(user.username, {
       onBoarding: false,
-    })
+    }) */
   }
 
   return (
