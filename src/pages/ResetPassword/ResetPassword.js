@@ -23,7 +23,7 @@ const ResetPasswordPage = ({
 }) => {
   useEffect(() => {
     forgotPassIsExpire(match.params.token, history)
-  }, [forgotPassIsExpire])
+  }, [forgotPassIsExpire, match, history])
 
   const [data, setData] = useState({
     password: '',

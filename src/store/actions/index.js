@@ -1,3 +1,5 @@
+import { Notification } from './notification'
+
 import {
   signup,
   login,
@@ -8,7 +10,9 @@ import {
   setOnBoarding,
 } from './auth'
 
-import { Notification } from './notification'
+import {
+  listPokemons,
+} from './pokedex'
 
 export {
   Notification,
@@ -19,4 +23,5 @@ export {
   forgotPassIsExpire,
   resetPassword,
   setOnBoarding,
+  listPokemons,
 }

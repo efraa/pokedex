@@ -1,0 +1,76 @@
+$block: 'last-pokemons';
+
+.#{$block} {
+  padding: 40px;
+  padding-right: 0;
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  &__wrapper {
+    flex-grow: 1;
+    min-width: 33.33%;
+    padding-left: 8px;
+    padding-bottom: 16px;
+
+    &:nth-child(odd) {
+      padding-right: 8px;
+      padding-left: 0;
+    }
+  }
+
+  &__card {
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    padding: 40px;
+    border-radius: $radius-container;
+    text-decoration: none !important;
+    border: solid 2px $gray-light;
+
+    &:hover {
+      box-shadow: rgba($black, 0.08) 0px 8px 28px;
+      border-color: $secound-color;
+    }
+  }
+
+  &__name {
+    padding: 0;
+    margin: 0;
+    margin-top: 22px;
+
+    &::after {
+      content: '';
+      position: relative;
+      display: block;
+      margin-top: 8px;
+      height: 8px;
+      width: 100%;
+      max-width: 40px;
+      background: $secound-color;
+      border-radius: 100px;
+    }
+  }
+
+  &__picture {
+    $size: 150px;
+    background-position: center;
+    width: $size;
+    height: $size;
+    min-width: $size;
+    min-height: $size;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: $white;
+    border-radius: 100%;
+    border: solid 6px $gray-light;
+    box-shadow: 0 0 0 4px $primary-color;
+  }
+}

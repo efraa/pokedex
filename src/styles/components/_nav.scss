@@ -31,6 +31,7 @@ $block: 'nav';
     border-right: solid 1px $gray-light;
     height: 100%;
     min-height: 100vh;
+    z-index: 1;
     
     @include mobile() {
       position: fixed;

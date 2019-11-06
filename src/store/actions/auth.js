@@ -1,4 +1,4 @@
-import jwt from 'jwt-decode'
+import { verifyTokenAndGetUser } from '../../utils/jwt'
 import { AuthService } from '../../services'
 
 import { Notification } from '../actions'
@@ -115,13 +115,14 @@ export const setOnBoarding = (username, onBoarding) => async dispatch => {
 }
 
 // set User
-export const authUser = (token, type = LOGIN_SUCCESS) => dispatch => {
+export const authUser = (token, type = LOGIN_SUCCESS) => 
+  async dispatch => {
   dispatch({
     type,
     token,
   })
   // Decode token and get user info and exp
-  const user = jwt(token)
+  const user = await verifyTokenAndGetUser(token)
   // Set user
   dispatch(setUser(user))
 }
